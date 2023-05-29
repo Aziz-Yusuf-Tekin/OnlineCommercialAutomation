@@ -1,0 +1,32 @@
+﻿@using OnlineCommercialAutomation.Models.Classes
+@model List<Department>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<table class="table table-bordered" style="margin-top:20px;">
+    <tr>
+        <td>ID</td>
+        <th>Departman Adı</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+        <th>Detaylar</th>
+    </tr>
+    @foreach (var k in Model)
+    {
+        <tr>
+            <td>
+                @k.DepartmentID
+            </td>
+            <td>
+                @k.Name
+            </td>
+            <td><a href="/Department/DepartmentDelete/@k.DepartmentID" class="btn btn-danger">Sil</a></td>
+            <td><a href="/Department/DepartmentBring/@k.DepartmentID" class="btn btn-success">Güncelle</a></td>
+            <td><a href="/Department/DepartmentDetail/@k.DepartmentID" class="btn btn-default" style="background-color:darkslateblue; color:white">Detaylar</a></td>
+        </tr>
+    }
+</table>
+<a href="/Department/DepartmentAdd" class="btn btn-primary">Departman Ekle</a>
+

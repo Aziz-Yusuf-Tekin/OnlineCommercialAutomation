@@ -1,0 +1,27 @@
+﻿@model OnlineCommercialAutomation.Models.Classes.InvoiceItem
+@{
+    ViewBag.Title = "ItemAdd";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<h2>Yeni Kalem Sayfası</h2>
+<br />
+<form class="form-group" method="post">
+    @Html.Label("Açıklama")
+    @Html.TextBoxFor(x => x.Description, new { @class = "form-control" })
+    <br />
+    @Html.Label("Miktar")
+    @Html.TextBoxFor(x => x.Quantity, new { @class = "form-control" })
+    <br />
+    @Html.Label("Birim Fiyat")
+    @Html.TextBoxFor(x => x.UnitPrice, new { @class = "form-control" })
+    <br />
+    @Html.Label("Tutar")
+    @Html.TextBoxFor(x => x.TotalAmount, new { @class = "form-control" })
+    <br />
+    @Html.Label("Fatura ID")
+    @Html.TextBoxFor(x => x.InvoiceId, new { @class = "form-control" })
+    <br />
+   
+    <button class="btn btn-info">Kaydet</button>
+</form>

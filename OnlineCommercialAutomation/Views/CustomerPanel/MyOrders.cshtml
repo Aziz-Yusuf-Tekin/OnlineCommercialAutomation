@@ -1,0 +1,28 @@
+﻿@using OnlineCommercialAutomation.Models.Classes
+@model List<SalesMovement>
+@{
+    ViewBag.Title = "MyOrders";
+    Layout = "~/Views/Shared/_CustomerLayout.cshtml";
+}
+<br />
+<h2>Sipariş Geçmişim</h2>
+<br />
+<table class="table table-bordered">
+    <tr>
+        <th>Sipariş Tarihi</th>
+        <th>Ürün Adı</th>
+        <th>Ürün Birim Fiyatı</th>
+        <th>Ürün Adedi</th>
+        <th>Toplam Tutar</th>
+    </tr>
+    @foreach (var x in Model)
+    {
+        <tr>
+            <td>@Convert.ToDateTime(x.Date).ToString("dd/MM/yyyy")</td>
+            <td>@x.Product.ProductName</td>
+            <td>@x.Product.SalePrice</td>
+            <td>@x.Quantity</td>
+            <td>@x.TotalAmount</td>
+        </tr>
+    }
+</table>

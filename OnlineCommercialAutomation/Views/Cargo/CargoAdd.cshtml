@@ -1,0 +1,26 @@
+﻿@model OnlineCommercialAutomation.Models.Classes.CargoDetail
+@{
+    ViewBag.Title = "CargoAdd";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<h2>Yeni Kargo Bilgisi Sayfası</h2>
+<br />
+<form class="form-group" method="post">
+    @Html.LabelFor(x => x.CargoTrackingCode)
+    <input type="text" value="@ViewBag.trackingcode" class="form-control" readonly name="CargoTrackingCode" />
+    <br />
+    @Html.LabelFor(x => x.Sender)
+    @Html.TextBoxFor(x => x.Sender, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Buyer)
+    @Html.TextBoxFor(x => x.Buyer, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Date)
+    <input class="form-control" type="date" name="Date" />
+    <br />
+    @Html.LabelFor(x => x.CargoComment)
+    @Html.TextAreaFor(x => x.CargoComment, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-info">Kaydet</button>
+</form>

@@ -1,0 +1,34 @@
+﻿@model OnlineCommercialAutomation.Models.Classes.Invoice
+@{
+    ViewBag.Title = "InvoiceBring";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<h2>Fatura Güncelleme Sayfası</h2>
+<br />
+@using (Html.BeginForm("InvoiceUpdate", "Invoice", FormMethod.Post))
+{
+    @Html.HiddenFor(x => x.InvoiceID)
+    @Html.LabelFor(x => x.InvoiceNumber)
+    @Html.TextBoxFor(x => x.InvoiceNumber, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.InvoiceSerialNumber)
+    @Html.TextBoxFor(x => x.InvoiceSerialNumber, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.TaxAdministration)
+    @Html.TextBoxFor(x => x.TaxAdministration, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Date)
+    @Html.TextBoxFor(x => x.Date, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Time)
+    @Html.TextBoxFor(x => x.Time, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Submitter)
+    @Html.TextBoxFor(x => x.Submitter, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Receiver)
+    @Html.TextBoxFor(x => x.Receiver, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-warning">Güncelle</button>
+}

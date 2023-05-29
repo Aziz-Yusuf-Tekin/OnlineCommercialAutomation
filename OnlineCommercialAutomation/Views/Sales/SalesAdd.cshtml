@@ -1,0 +1,30 @@
+﻿@model OnlineCommercialAutomation.Models.Classes.SalesMovement
+@{
+    ViewBag.Title = "SalesAdd";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<h2>Yeni Satış Ekleme Sayfası</h2>
+<br />
+<form class="form-group" method="post">
+    @Html.Label("Ürün")
+    @Html.DropDownListFor(x => x.ProductId, (List<SelectListItem>)ViewBag.value1, new { @class = "form-control" })
+    <br />
+    @Html.Label("Müşteri")
+    @Html.DropDownListFor(x => x.CustomerId, (List<SelectListItem>)ViewBag.value2, new { @class = "form-control" })
+    <br />
+    @Html.Label("Personel")
+    @Html.DropDownListFor(x => x.EmployeeId, (List<SelectListItem>)ViewBag.value3, new { @class = "form-control" })
+    <br />
+    @Html.Label("Adet")
+    @Html.TextBoxFor(x => x.Quantity, new { @class = "form-control" })
+    <br />
+    @Html.Label("Fiyat")
+    @Html.TextBoxFor(x => x.Price, new { @class = "form-control" })
+    <br />
+    @Html.Label("Toplam Tutar")
+    @Html.TextBoxFor(x => x.TotalAmount, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-info">Satış</button>
+</form>
+

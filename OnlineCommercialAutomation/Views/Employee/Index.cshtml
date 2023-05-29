@@ -1,0 +1,49 @@
+﻿@using OnlineCommercialAutomation.Models.Classes
+@model List<Employee>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<table class="table table-bordered" style="margin-top:20px;">
+    <tr>
+        <td>ID</td>
+        <th>Ad</th>
+        <th>Soyad</th>
+        <th>Departman</th>
+        <th>Görsel</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+        <th>Satışlar</th>
+    </tr>
+    @foreach (var k in Model)
+    {
+        <tr>
+            <td>
+                @k.EmployeeID
+            </td>
+            <td>
+                @k.EmployeeName
+            </td>
+            <td>
+                @k.EmployeeSurname
+            </td>
+            <td>
+                @k.Department.Name
+            </td>
+            <td>
+                <img src="@k.EmployeeImage" style="width:100px; height:50px;" />
+            </td>
+            <td>
+                <a href="/Employee/EmployeeDelete/@k.EmployeeID" class="btn btn-danger">Sil</a>
+            </td>
+            <td>
+                <a href="/Employee/EmployeeBring/@k.EmployeeID" class="btn btn-success">Güncelle</a>
+            </td>
+            <td>
+                <a href="/Department/DepartmentEmployeeSale/@k.EmployeeID" class="btn btn-default" style="background-color:darkslateblue; color:white">Detaylar</a>
+            </td>
+        </tr>
+    }
+</table>
+<a href="/Employee/EmployeeAdd" class="btn btn-primary">Personel Ekle</a>

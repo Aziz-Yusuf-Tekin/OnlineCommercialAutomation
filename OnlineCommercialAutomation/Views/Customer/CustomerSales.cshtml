@@ -1,0 +1,35 @@
+﻿@using OnlineCommercialAutomation.Models.Classes
+@model List<SalesMovement> 
+@{
+    ViewBag.Title = "CustomerSales";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active">Müşteri Adı : @ViewBag.customer</li>
+</ol>
+<table class="table table-condensed">
+    <tr>
+        <th>Satış ID</th>
+        <th>Ürün</th>
+        <th>Personel</th>
+        <th>Fiyat</th>
+        <th>Adet</th>
+        <th>Toplam</th>
+        <th>Tarih</th>
+        <th>Yazdır</th>
+    </tr>
+    @foreach (var x in Model)
+    {
+        <tr>
+            <td>@x.SalesMovementID</td>
+            <td>@x.Product.ProductName</td>
+            <td>@x.Employee.EmployeeName @x.Employee.EmployeeSurname</td>
+            <td>@x.Price</td>
+            <td>@x.Quantity</td>
+            <td>@x.TotalAmount</td>
+            <td>@x.Date</td>
+            <td><a href="#" class="btn btn-default" style="background-color:darkorange">Yazdır</a></td>
+        </tr>
+    }
+</table>

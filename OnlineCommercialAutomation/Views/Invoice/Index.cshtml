@@ -1,0 +1,67 @@
+﻿@using OnlineCommercialAutomation.Models.Classes
+@model List<Invoice>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<table class="table table-bordered" style="margin-top:20px;">
+    <tr>
+        <th>Seri Sıra No</th>
+        <th>Vergi Dairesi</th>
+        <th>Tarih</th>
+        <th>Saat</th>
+        <th>Teslim Eden</th>
+        <th>Teslim Alan</th>
+        <th>Toplam</th>
+        <th>Güncelle</th>
+        <th>Detaylar</th>>
+        <th>Yeni Kalem</th>
+    </tr>
+    @foreach (var k in Model)
+    {
+        <tr>
+            <td>@k.InvoiceNumber @k.InvoiceSerialNumber</td>
+            <td>@k.TaxAdministration</td>
+            <td>@k.Date</td>
+            <td>@k.Time</td>
+            <td>@k.Submitter</td>
+            <td>@k.Receiver</td>
+            <td>@k.Total ₺</td>
+            <td><a href="/Invoice/InvoiceBring/@k.InvoiceID" class="btn btn-success">Güncelle</a></td>
+            <td><a href="/Invoice/InvoiceItemDetail/@k.InvoiceID" class="btn btn-default" style="background-color:darkslateblue; color:white">Detaylar</a></td>
+            <td><a href="/Invoice/InvoiceItemDetail/@k.InvoiceID" class="btn btn-default" style="background-color:cadetblue; color:white">Yeni Kalem</a></td>
+        </tr>
+    }
+</table>
+<a href="/Invoice/InvoiceAdd" class="btn btn-primary">Yeni Fatura Girişi</a>
+
+<button type="button" class="btn btn-default" style="background-color:mediumpurple; color:white" data-toggle="modal" data-target="#Modal1">Popup Penceresi</button>
+
+<div class="modal" id="Modal1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Popup Diyalog Ekranı</h2>
+            </div>
+            <div class="modal-body">
+                <table class="table table-bordered">
+                    <tr>
+                        <td>Seri No</td>
+                        <td>Sıra No</td>
+                        <td>Tutar</td>
+                    </tr>
+                    @foreach (var x in Model)
+                    {
+                        <tr>
+                            <td>@x.InvoiceNumber</td>
+                            <td>@x.InvoiceSerialNumber</td>
+                            <td>@x.Total</td>
+                        </tr>
+                    }
+                </table>
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Kapat</button>
+            </div>
+        </div>
+    </div>
+</div>
+ 

@@ -1,0 +1,32 @@
+﻿@using OnlineCommercialAutomation.Models.Classes
+@model List<InvoiceItem>
+@{
+    ViewBag.Title = "InvoiceItemDetail";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<h2>DepartmentDetail</h2>
+<br />
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active">Departman Adı : @ViewBag.d</li>
+</ol>
+<table class="table table-hover">
+    <tr>
+        <th>ID</th>
+        <th>Açıklama</th>
+        <th>Miktar</th>
+        <th>Birim Fiyatı</th>
+        <th>Tutar</th>
+    </tr>
+    @foreach (var x in Model)
+    {
+        <tr>
+            <td>@x.InvoiceItemID</td>
+            <td>@x.Description</td>
+            <td>@x.Quantity</td>
+            <td>@x.UnitPrice</td>
+            <td>@x.TotalAmount</td>
+        </tr>
+    }
+</table>
+<a href="/Invoice/ItemAdd" class="btn btn-default" style="background-color:khaki">Yeni Kalem Girişi</a>
